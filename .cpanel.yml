@@ -1,0 +1,11 @@
+# Hostinger Git Deployment Configuration
+# This file tells Hostinger what to do after deployment
+
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/cp $DEPLOYPATH/app/config-hostinger.php $DEPLOYPATH/app/config.php
+    - /bin/chmod 644 $DEPLOYPATH/app/config.php
+    - /bin/chmod -R 755 $DEPLOYPATH/app/data
+    - /bin/mkdir -p $DEPLOYPATH/app/data
